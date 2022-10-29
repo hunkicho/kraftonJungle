@@ -1,6 +1,26 @@
 # https://www.acmicpc.net/problem/1978
 
 
+# 틀린 코드
+# 리스트에서 1인 요소 지우고 input_count -1 안함
+
+# import sys
+# import math
+
+# input_count = int(sys.stdin.readline())
+# input_num = list(map(int, sys.stdin.readline().split()))
+
+# if input_num.count(1) > 0:
+#     input_num.remove(1)
+
+# for i in input_num:
+#     for j in range (2, int(math.sqrt(i)) + 1):
+#         if i % j == 0:
+#             input_count -= 1
+# print(input_count)
+
+
+
 
 # 에라토스테네스의 체 이용
 # 약수의 성질: 모든 약수는 가운데 약수를 기준으로 곱셈 연산에 대해 대칭을 이룬다.
