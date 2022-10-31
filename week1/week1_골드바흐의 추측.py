@@ -102,9 +102,9 @@ for i in range(count):
                 break
         if is_yn == "Y":
             num_list.append(j)
-    print(num_list)
+    #print(num_list)
     num_list.pop()
-    print(num_list)
+    #print(num_list)
     ##### 입력한 수의 소수 담기 ####
     if num_list.count(j / 2) > 0:
         print_list.append((int(j/2),int(j/2)))
