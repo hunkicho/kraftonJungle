@@ -22,20 +22,26 @@
 import sys
 input_number = int(sys.stdin.readline())
 
-# all = 0
-# def sum(n):
-#     sum = 0
-#     for i in range (n,0,-1):
-#         if i % 2 == 0:
 if input_number <= 98:
     print(input_number)
 elif input_number <= 110:
     print(99)
 else:
     sum = 0
-    if input_number >= int(str(input_number)[0:1]*3):
-        sum += 1
     
+    for k in range(111,input_number + 1):
+        test = []
+        for i in range(len(str(k))):
+            globals()['a{}'.format(i)] = int(str(k)[i])
+
+        for j in range(len(str(k))-1):
+            test.append( globals()['a{}'.format(j)] - globals()['a{}'.format(j+1)])
+        
+        test = list(set(test))
+        
+        if len(test) == 1:
+            sum += 1
+    print(99 + sum)
 
 
 

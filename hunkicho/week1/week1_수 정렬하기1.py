@@ -4,6 +4,7 @@
 import sys
 
 def qsort(num,left,right) -> None:
+    print("num=",num)
     l = left
     r = right
     middle = num[(l+r) // 2] # 체크값
