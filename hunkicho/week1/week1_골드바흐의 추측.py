@@ -138,6 +138,7 @@ half = []
 for i in range(2, 10000) :
     if a[i] :
         sosu.append(i)
+        # 2부터 배수들을 모두 False 처리
         for j in range(i*2, 10000+1, i) :
             a[j] = False
 
@@ -153,3 +154,7 @@ for k in range(n) :
         if x in sosu and y in sosu :
             print(y, x)
             break
+
+
+
+    
