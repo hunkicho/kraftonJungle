@@ -165,29 +165,79 @@
 
 
 #박현우님의 코드
-nQueenCnt = 0
-n = int(input())
-board = [-1 for i in range(n)]
+# nQueenCnt = 0
+# n = int(input())
+# board = [-1 for i in range(n)]
 
+# def check(x):
+#     for i in range(x):
+#         if board[x] == board[i] or abs(board[x] - board[i]) == abs(x - i):
+#             return False
+
+#     return True
+
+# def findNqueenCnt(idx):
+#     global nQueenCnt
+
+#     if idx == n:
+#         nQueenCnt += 1
+#         return
+
+#     for i in range(n):
+#         board[idx] = i
+
+#         if check(idx):
+#             findNqueenCnt(idx + 1)
+
+# findNqueenCnt(0)
+# print(nQueenCnt)
+
+
+# https://fre2-dom.tistory.com/247
+
+import sys
+# pypy3 해결.. python(3%) 시간초과
+
+# 대각선 체크 방법
+# 현재 위치가 (3,3) 이라고 하면 왼쪽 대각선의 좌표는 (2,2),(1,1),(0,0) 이 된다.
+# 
+
+# 대각선의 퀸이 있는지 확인
 def check(x):
     for i in range(x):
-        if board[x] == board[i] or abs(board[x] - board[i]) == abs(x - i):
+        if abs(graph[x] - graph[i]) == x - i:
             return False
-
     return True
 
-def findNqueenCnt(idx):
-    global nQueenCnt
 
-    if idx == n:
-        nQueenCnt += 1
+# 체스 판의 열을 dfs 탐색
+def dfs(queen):
+    global res
+
+    # n번째 퀸을 놓으려 한다면 리턴 (n개의 퀸을 놓았기 때문.)
+    if queen == n:
+        res += 1 # 방법의 수 카운트
+        print(graph)
         return
 
+    # 모든 체스판의 열을 확인
     for i in range(n):
-        board[idx] = i
+        # i 번째 열의 퀸을 놓지 않았다면
+        if not visited[i]:
+            graph[queen] = i # (queen, i)에 퀸을 둔다.
 
-        if check(idx):
-            findNqueenCnt(idx + 1)
+            # 대각선의 겹치는 퀸이 있는지 확인
+            if check(queen):
+                # 백 트래킹
+                visited[i] = True # 퀸을 놓는다.
+                dfs(queen + 1) # 재귀적으로 퀸을 놓을 수 있는 열을 찾는다.
+                visited[i] = False # 재귀 탐색 후 퀸을 n개 놓을 수 없다면 퀸을 놓지 않는 것으로 초기화 후 다른 열을 탐색
 
-findNqueenCnt(0)
-print(nQueenCnt)
+
+n = int(sys.stdin.readline())
+graph = [0 for _ in range(n)] # n번째 열의 퀸의 위치
+visited = [False for _ in range(n)] # 체스판의 탐색 여부
+res = 0 # 퀸을 놓는 방법의 수
+
+dfs(0)
+print()

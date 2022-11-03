@@ -28,22 +28,22 @@
 # 8이 2로 나누어 떨어지면 4로도 나누어 떨어진다.
 # 소수 판단할 때도 1과 자기 자신 사이까지 다 할 필요없고 2부터 제곱근 까지만 하면 된다.
 
-import sys
-import math
+# import sys
+# import math
 
-input_count = int(sys.stdin.readline())
-input_num = list(map(int, sys.stdin.readline().split()))
+# input_count = int(sys.stdin.readline())
+# input_num = list(map(int, sys.stdin.readline().split()))
 
-if input_num.count(1) > 0:
-    input_num.remove(1)
-    input_count -= 1
+# if input_num.count(1) > 0:
+#     input_num.remove(1)
+#     input_count -= 1
 
-for i in input_num:
-    for j in range (2, int(math.sqrt(i)) + 1):
-        if i % j == 0:
-            input_count -= 1
-            break
-print(input_count)
+# for i in input_num:
+#     for j in range (2, int(math.sqrt(i)) + 1):
+#         if i % j == 0:
+#             input_count -= 1
+#             break
+# print(input_count)
 
 
 from cmath import sqrt
@@ -57,6 +57,8 @@ def decide(b) :
     elif a == 1 :
         return False
     while i * i <= a :
+        print("i=",i)
+        print("a=",a)
         if a % i == 0 :
             return False
         i+=1
