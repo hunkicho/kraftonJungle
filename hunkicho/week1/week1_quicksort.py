@@ -30,6 +30,3 @@ for i in range(count):
     num[i] = int(sys.stdin.readline())
 
 quick_sort(num)
-
-for i in num:
-    print(i)
