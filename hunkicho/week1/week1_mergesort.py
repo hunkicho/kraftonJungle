@@ -1,4 +1,3 @@
-from tkinter import N
 from typing import MutableSequence
 
 def merge_sort(a: MutableSequence) -> None:
@@ -13,13 +12,13 @@ def merge_sort(a: MutableSequence) -> None:
 
             p = j = 0
             i = k = left
-            
-            while i <= center:
+        
+            while i <= center:   # 배열a의 앞 부분을 배열 buff로 복사
                 buff[p] = a[i]
                 p += 1
                 i += 1
 
-            while i <= right and j < p:
+            while i <= right and j < p:    # 배열a의 뒷부분과 배열 buff를 배열 a에 병합
                 if buff[j] <= a[i]:
                     a[k] = buff[j]
                     j += 1
@@ -28,7 +27,7 @@ def merge_sort(a: MutableSequence) -> None:
                     i += 1
                 k += 1
 
-            while j < p:
+            while j < p:           # 배열 buff의 나머지 원소를 배열 a에 복사
                 a[k] = buff[j]
                 k += 1
                 j += 1
