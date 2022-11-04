@@ -34,8 +34,8 @@ def merge_sort(a: MutableSequence) -> None:
                 j += 1
 
     n = len(a)
-    buff = [None] * n      # 작업용 배열을 생성
-    _merge_sort(a, 0, n-1) # 배열 전체를 병합 정렬
+    buff = [None] * n      # 작업용 배열을 생성 (병합 결과를 임시 저장)
+    _merge_sort(a, 0, n-1) # 배열 전체를 병합 정렬 (실제 정렬 작업 수행)
     del buff               # 작업용 배열을 소멸
 
 if __name__ == '__main__':
