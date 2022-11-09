@@ -34,13 +34,9 @@ class MaxHeap(object):
     def maxHeapify(self,i):
         left_index = self.leftchild(i)
         right_index = self.rightchild(i)
-        #print("0.",left_index,right_index)
         max_index = i  
-        #print("1.변경 전",self.queue)
-        #print(self.queue[max_index],self.queue[left_index],self.queue[right_index])
+
         # 더 큰 값의 index를 넣어준다
-        #print(left_index <= len(self.queue) - 1 and self.queue[max_index] < self.queue[left_index])
-        #print(right_index <= len(self.queue) - 1 and self.queue[max_index] < self.queue[right_index])
         if left_index <= len(self.queue) - 1 and self.queue[max_index] < self.queue[left_index]:
             max_index = left_index
             #print("2.maxl=",max_index)
@@ -49,7 +45,6 @@ class MaxHeap(object):
             #print("2.maxr=",max_index)
 
         # 만약 자신이 가장 큰게 아니라면 heapify
-        #print("3.max_index=",max_index,"i=",i,end="\n")
         if max_index != i:
             self.swap(i, max_index)
             self.maxHeapify(max_index)
