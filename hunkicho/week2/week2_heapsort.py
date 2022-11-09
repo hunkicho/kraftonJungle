@@ -6,9 +6,6 @@ def heap_sort(a: MutableSequence) -> None:
     """힙 정렬"""
 
     def down_heap(a: MutableSequence, left: int, right: int) -> None:
-        print("첫 배열=",a)
-        print("left=",left)
-        print("right=",right)
         """a[left] ~ a[right]를 힙으로 만들기"""
         temp = a[left]      # 루트
 
@@ -25,14 +22,12 @@ def heap_sort(a: MutableSequence) -> None:
 
     n = len(a)
 
-    for i in range((n - 1) // 2, -1, -1):   # a[i] ~ a[n-1]을 힙으로 만들기
-        print("i1=",i)
+    for i in range((n - 1) // 2, -1, -1):   # a[i] ~ a[n-1]을 힙으로 만들기, 배열을 힙으로 만드는데 가장 아랫부분 부터 서브트리 힙으로 만든다. 힙을 만들어 0번째 인덱스에 최대값을 넣는 것이 목적
         down_heap(a, i, n - 1)
-
+        
     for i in range(n - 1, 0, -1):
-        print("i2=",i)
         a[0], a[i] = a[i], a[0]     # 최댓값인 a[0]과 마지막 원소 a[i]를 교환
-        down_heap(a, 0, i - 1)      # a[0] ~ a[i-1]을 힙으로 만들기
+        down_heap(a, 0, i - 1)      # a[0] ~ a[i-1]을 힙으로 만들기, 힙을 만들어 0번째 인덱스에 최대값 넣고 다음 반복문에서 그 값을 마지막 인덱스와 교환
 
 if __name__ == '__main__':
     print('힙 정렬을 수행합니다.')
