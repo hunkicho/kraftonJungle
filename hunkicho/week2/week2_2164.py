@@ -107,8 +107,6 @@ for i in range(count):
 while True:
     # 한장 버리고 front 다음 인덱스로
     front += 1
-    # if front == count:
-    #     front = 0
     no -= 1
     if no == 1:
         print(q[front])
@@ -117,5 +115,3 @@ while True:
     q[back] = q[front]
     front += 1
     back += 1
-    # if back == count:
-    #     back = 0

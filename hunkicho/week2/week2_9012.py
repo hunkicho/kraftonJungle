@@ -2,20 +2,22 @@
 
 import sys
 
-st = []
-open = []
-close = []
 number = int(sys.stdin.readline())
 
 for i in range(number):
+    st = []
     check = list(sys.stdin.readline().rstrip())
-
-    
-
-    if check.count('(') == check.count(')'):
-        st.append("YES")
-    else:
-        st.append("NO")
-
-for j in st:
-    print(j)
+    for j in check:
+        if j == '(':
+            st.append(j)
+        elif j == ")":
+            if len(st) > 0:
+                st.pop()
+            else:
+                print("NO")
+                break
+    else:  # for ~ else 구문으로 for문에서 break 안걸리고 왔으면 실행하는 부분
+        if len(st) == 0:
+            print("YES")
+        else:
+            print("NO")
