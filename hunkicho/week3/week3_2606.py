@@ -22,7 +22,7 @@ def dfs(node):
     for j in graph[node]:
         if not visit[j]:
             dfs(j)
-
+            
 # for i in range(1,v + 1):
 #     if not visit[i]:
 #         check += 1
