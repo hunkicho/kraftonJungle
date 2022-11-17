@@ -35,6 +35,7 @@
 #             just = 1
 
 
+# 83%에서 틀림
 import sys
 from collections import deque
 
