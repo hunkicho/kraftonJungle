@@ -24,7 +24,7 @@ def dfs(node):
 
 def bfs(node):
     visit_bfs[node] = True     # 방문시 방문여부 -> True
-    q = deque([node])          # 큐 선언
+    q = deque([(node)])          # 큐 선언
 
     while q:
         n = q.popleft()
