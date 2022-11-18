@@ -7,7 +7,7 @@ from collections import deque
 v,e,s = map(int,sys.stdin.readline().split())
 graph = [[] for _ in range(v+1)]
 for _ in range (e):
-    start, end = map(int,sys.stdin.readline().split())  # edge 입력받기
+    start, end = map(int,sys.stdin.readline().split())  # edge 입력받기  
     graph[start].append(end)   # start에 연결된 node append
     graph[end].append(start)   # end에 연결된 node append
     graph[start].sort()        # 정렬
