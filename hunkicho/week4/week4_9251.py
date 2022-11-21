@@ -25,19 +25,38 @@
 
 # https://ddongwon.tistory.com/106
 
-import sys
+# import sys
 
-sys.setrecursionlimit(10 ** 6)
+# sys.setrecursionlimit(10 ** 6)
+
+# str1 = list(sys.stdin.readline().strip())
+# str2 = list(sys.stdin.readline().strip())
+
+# def lcs(arr1, arr2, len1, len2):
+#     if len1 == 0 or len2 == 0:
+#         return 0
+#     elif arr1[len1 - 1] == arr2[len2 - 1]:
+#         return 1 + lcs(arr1, arr2, len1 - 1, len2 - 1)
+#     else:
+#         return max(lcs(arr1, arr2, len1 - 1, len2), lcs(arr1, arr2, len1, len2 - 1))
+
+# print(lcs(str1, str2, len(str1), len(str2)))
+
+
+# 
+
+import sys
 
 str1 = list(sys.stdin.readline().strip())
 str2 = list(sys.stdin.readline().strip())
 
-def lcs(arr1, arr2, len1, len2):
-    if len1 == 0 or len2 == 0:
-        return 0
-    elif arr1[len1 - 1] == arr2[len2 - 1]:
-        return 1 + lcs(arr1, arr2, len1 - 1, len2 - 1)
-    else:
-        return max(lcs(arr1, arr2, len1 - 1, len2), lcs(arr1, arr2, len1, len2 - 1))
+lcs = [[0 for _ in range(len(str1) + 1)] for _ in range(len(str2) + 1)]
 
-print(lcs(str1, str2, len(str1), len(str2)))
+for i in range(1, len(str1) + 1):
+    for j in range(1, len(str2) + 1):
+        if str1[i -1] == str2[j - 1]:
+            lcs[i][j] = lcs[i - 1][j - 1] + 1
+        else:
+            lcs[i][j] = max(lcs[i][j - 1], lcs[i -1][j])
+
+print(lcs[len(str1)][len(str2)])
