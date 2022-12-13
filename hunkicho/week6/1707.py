@@ -1,4 +1,6 @@
 # https://www.acmicpc.net/problem/1707
+# 이분그래프
+# 인접한 노드끼리 같은 색깔이면 이분그래프가 아니다.
 
 import sys
 sys.setrecursionlimit(10 ** 6)
